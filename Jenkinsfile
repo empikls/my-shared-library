@@ -14,7 +14,7 @@ helmTemplate(podLabel) {
   node(podLabel){
 
     git credentialsId: 'gitHub_api_key',
-      url: 'https://github.com/empikls/my-shared-library'
+      url: 'https://github.com/empikls/node.is'
     
     // list yaml pathFiles
     def yamlFilePathList = fileList('.')
