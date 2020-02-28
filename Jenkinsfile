@@ -1,6 +1,6 @@
 #!groovy
 
-def lib = library identifier: 'my-shared-library@master', retriever: modernSCM(github(repository: 'Jenkins', repoOwner: 'empikls'))
+def lib = library identifier: 'my-shared-library@master', retriever: modernSCM(github(repository: 'my-shared-library', repoOwner: 'empikls'))
 
 def podLabel = "label"
 
