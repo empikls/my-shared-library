@@ -13,7 +13,7 @@ properties([
 helmTemplate(podLabel) {
   node(podLabel){
 
-    git credentialsId: 'gitHub_api_key',
+    git credentialsId: 'gitHub',
       url: 'https://github.com/empikls/control-release.git'
     
     // list yaml pathFiles
