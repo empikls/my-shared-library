@@ -38,7 +38,7 @@ class Sun implements Serializable {
         steps.stage("Deployment $stageName") {
             if ( dockerTag ) {
 
-                script.checkoutConfRepo( dockerTag )
+                script.checkoutGitApp( dockerTag )
 
                 steps.container('helm') {
                     steps.withKubeConfig([credentialsId: 'kubeconfig']){
