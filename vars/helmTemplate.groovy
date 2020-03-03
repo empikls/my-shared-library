@@ -1,4 +1,4 @@
-def call(String podLabel, code) { podTamplate(
+def call(String podLabel, code) { podTemplate(
         cloud: 'kubernetes',
         namespace: 'jenkins',
         label: podLabel,
