@@ -1,4 +1,5 @@
 package com.sun
+import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
 
 class Sun implements Serializable {
 
@@ -37,7 +38,7 @@ class Sun implements Serializable {
         steps.stage("Deployment $stageName") {
             if ( dockerTag ) {
 
-                script.checkoutGitApp( dockerTag )
+                script.checkoutConfRepo( dockerTag )
 
                 steps.container('helm') {
                     steps.withKubeConfig([credentialsId: 'kubeconfig']){

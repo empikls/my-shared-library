@@ -1,7 +1,7 @@
-def call(Closure code) { podTemplate(
+def call(String podLabel, Closure code) { podTemplate(
         cloud: 'kubernetes',
         namespace: 'jenkins',
-        label: 'worker-docker',
+        label: podLabel,
         containers: [
                 containerTemplate(
                         name: 'nodejs',
@@ -12,11 +12,7 @@ def call(Closure code) { podTemplate(
                         name: 'docker-dind',
                         image: 'docker:stable-dind',
                         ttyEnabled: true,
-                        command: 'cat'
-                )
-        ],
-        volumes: [
-                hostPathVolume(hostPath: '/var/lib/docker.sock', mountPath: '/var/lib/docker.sock')
+                        privileged: true)
         ]) {
     code() }
 }

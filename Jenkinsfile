@@ -2,7 +2,7 @@
 
 def lib = library identifier: 'my-shared-library@master', retriever: modernSCM(github(repository: 'my-shared-library', repoOwner: 'empikls'))
 
-def podLabel = "label"
+def podLabel = "label2"
 
 properties([
   parameters([
@@ -14,7 +14,7 @@ helmTemplate(podLabel) {
   node(podLabel){
 
     git credentialsId: 'gitHub_api_key',
-      url: 'https://github.com/empikls/node.is'
+      url: 'https://github.com/empikls/control-release.git'
     
     // list yaml pathFiles
     def yamlFilePathList = fileList('.')
@@ -27,7 +27,7 @@ helmTemplate(podLabel) {
     }
 
     // get filePath from changeSet 
-    def stagesList = changeSetFiles()
+    def stagesList = isChangeList()
 
     if ( isShortCommit(params.dockerTag) ) stagesList.add( 'dev/dev-web.yaml' )
 
