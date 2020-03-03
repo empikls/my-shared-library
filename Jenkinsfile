@@ -14,26 +14,26 @@ helmTemplate(podLabel) {
   node(podLabel){
 
     git credentialsId: 'gitHub',
-      url: 'https://github.com/empikls/control-release.git'
+            url: 'https://github.com/empikls/control-release.git'
     
-    // list yaml pathFiles
+
     def yamlFilePathList = fileList('.')
 
-    // List<SunStage>
+
     List stages = [] 
 
     yamlFilePathList.each {
         stages.add( sunClassLoad(it) )
     }
 
-    // get filePath from changeSet 
+
     def stagesList = isChangeList()
 
     if ( isShortCommit(params.dockerTag) ) stagesList.add( 'dev/dev-web.yaml' )
 
     if ( isBuildingTag(params.dockerTag) ) stagesList.add( 'qa/qa-web.yaml' )
 
-    // init stage deploy for each Sun
+
     stages.each { stage -> 
       stagesList.each { prod -> 
           if ( stage.stageName == prod ) 
