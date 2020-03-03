@@ -1,4 +1,4 @@
-package com.sun
+package org.sun
 import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
 
 class Sun implements Serializable {
