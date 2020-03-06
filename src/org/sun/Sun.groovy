@@ -24,7 +24,7 @@ class Sun implements Serializable {
         nameSpace = getDirName( yamlFilePath )
         releaseName = getReleaseName( yamlFilePath )
         dockerTag = tag
-        println("init Deploy")
+//        println("init Deploy")
     }
 
     def print() {
