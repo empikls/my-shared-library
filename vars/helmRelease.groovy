@@ -4,9 +4,9 @@ def call(String namespace, String releaseName, String valuesFile, String imageTa
             helm upgrade --dry-run --debug \
             --install $releaseName \
             --namespace $namespace \
+            --debug \
             --force \
-            --wait \
-            ${imageTag}/app \
+            ./${imageTag}/app \
             --values $valuesFile  \
             --set-string image.tag=$imageTag
 
