@@ -28,6 +28,7 @@ helmTemplate(podLabel) {
 
 
     def stagesList = changeSetFiles()
+    println stagesList
 
     if ( isShortCommit(params.dockerTag) ) stagesList.add( 'dev/dev-web.yaml' )
 
