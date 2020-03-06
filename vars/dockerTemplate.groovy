@@ -1,7 +1,7 @@
 def call(Closure code) { podTemplate(
         cloud: 'kubernetes',
         namespace: 'jenkins',
-        label: 'worker-docker',
+        label: 'worker',
         containers: [
                 containerTemplate(
                         name: 'nodejs',
@@ -10,13 +10,13 @@ def call(Closure code) { podTemplate(
                         command: 'cat'),
                 containerTemplate(
                         name: 'docker-dind',
-                        image: 'docker:stable-dind',
+                        image: 'docker',
                         ttyEnabled: true,
                         command: 'cat'
                 )
         ],
         volumes: [
-                hostPathVolume(hostPath: '/var/lib/docker.sock', mountPath: '/var/lib/docker.sock')
+                hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock')
         ]) {
     code() }
 }

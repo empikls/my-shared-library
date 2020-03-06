@@ -1,3 +1,3 @@
 def call(String name) {
-    return ( name ==~ /^\d+\.\d+\.\d+$/ || name ==~ /^\d+.\d+.\d+$/ )
+    return (name ==~ /^v\d+.\d+.\d+$/ || name ==~ /^\d+.\d+.\d+$/)
 }
