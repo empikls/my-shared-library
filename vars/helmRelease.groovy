@@ -6,8 +6,9 @@ def call(String namespace, String releaseName, String valuesFile, String imageTa
             --namespace $namespace \
             --force \
             --wait \
-            --values $valuesFile  $imageTag/app \
+            --values $valuesFile ${imageTag}/app \
             --set-string image.tag=$imageTag
+
             helm ls
     """
 }
