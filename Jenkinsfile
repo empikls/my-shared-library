@@ -30,9 +30,9 @@ helmTemplate(podLabel) {
     def stagesList = changeSetFiles()
 
 
-    if ( isShortCommit(params.dockerTag) ) stagesList.add( 'dev/dev-web.yaml' )
+    if ( isShortCommit(params.dockerTag) ) stagesList.add( 'dev/hollychain.yaml' )
 
-    if ( isBuildingTag(params.dockerTag) ) stagesList.add( 'qa/qa-web.yaml' )
+    if ( isBuildingTag(params.dockerTag) ) stagesList.add( 'qa/emptyworld.yaml' )
 
     println(stagesList)
 
